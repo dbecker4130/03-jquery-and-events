@@ -27,7 +27,7 @@ articleView.handleAuthorFilter = function() {
             that was aselected. Hint: use an attribute selector to find
             those articles that match the value, and then fade them in.
         */
-        // done
+        // DONE //
     } else {
       $('article').fadeIn();
       $('article.template').hide();
@@ -42,6 +42,7 @@ articleView.handleCategoryFilter = function() {
   /* TODO: Just like we do for #author-filter above, we should also handle
   change events on the #category-filter element. Be sure to reset the
   #author-filter while you're at it! */
+  // DONE //
   $('#category-filter').on('change', function() {
     if ($(this).val()) {
       $('article').hide();
@@ -63,8 +64,9 @@ articleView.handleMainNav = function () {
       2. Fade in the single .tab-content section that is
         associated with the .tab element's data-content attribute.
     */
-    // $('.tab-content').hide();
-
+    // DONE //
+    $('.tab-content').hide();
+    $('#' + $(this).data('content')).fadeIn();
   });
   $('.main-nav .tab:first').click();
 };
@@ -72,6 +74,11 @@ articleView.handleMainNav = function () {
 articleView.setTeasers = function() {
   // Truncate logic to show only first two elements within the article body.
   $('.article-body *:nth-of-type(n+2)').hide();
+  $('#articles').on('click', 'a.read-on', function(md) {
+    md.preventDefault();
+    $('.article-body').show();
+    $(this).parent().find('*').fadeIn();
+  });
   /* TODO: Add a delegated event handler to reveal the remaining paragraphs.
     When a .read-on link is clicked, we can:
     1. Prevent the default action of a link.
@@ -80,10 +87,11 @@ articleView.setTeasers = function() {
 
     // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
   */
+  // DONE //
 };
 
 // TODO: Invoke all of the above functions (I mean, methods!):
-// done
+// DONE //
 
 articleView.populateFilters();
 articleView.handleAuthorFilter();
