@@ -78,6 +78,7 @@ articleView.setTeasers = function() {
     md.preventDefault();
     $('.article-body').show();
     $(this).parent().find('*').fadeIn();
+    $(this).hide();
   });
   /* TODO: Add a delegated event handler to reveal the remaining paragraphs.
     When a .read-on link is clicked, we can:
